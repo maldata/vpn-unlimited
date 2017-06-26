@@ -45,12 +45,20 @@ package() {
     msg "Moving the files into place..."
     
     install -d ${pkgdir}/usr
-#    install -d ${pkgdir}/usr/local/${apprepo}/bin
-#    install -d ${pkgdir}/usr/local/${apprepo}/etc
-#    install -d ${pkgdir}/usr/local/${apprepo}/var
-#    chmod 777 ${pkgdir}/usr/local/${apprepo}/var
+    install -d ${pkgdir}/usr/bin
+    install -d ${pkgdir}/usr/lib
+    install -d ${pkgdir}/usr/share
+
+    #    install -d ${pkgdir}/usr/local/${apprepo}/bin
+    #    install -d ${pkgdir}/usr/local/${apprepo}/etc
+    #    install -d ${pkgdir}/usr/local/${apprepo}/var
+    #    chmod 777 ${pkgdir}/usr/local/${apprepo}/var
     
-    cp -r ${srcdir}/usr/* ${pkgdir}/usr
+    cp -r ${srcdir}/usr/bin/* ${pkgdir}/usr/bin
+    cp -r ${srcdir}/usr/sbin/* ${pkgdir}/usr/bin
+    cp -r ${srcdir}/usr/lib/* ${pkgdir}/usr/lib
+    cp -r ${srcdir}/usr/share/* ${pkgdir}/usr/share
+    
 #    cp -r ${srcdir}/${cfgrepo}/* ${pkgdir}/usr/local/${apprepo}/etc/
 #    chmod 755 ${pkgdir}/usr/local/${apprepo}/bin/runExpressLocker
     # Here we create a symlink in pkgdir pointing at the location
